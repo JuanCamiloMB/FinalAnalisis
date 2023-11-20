@@ -1,29 +1,28 @@
 import tkinter as tk
 from tkinter import messagebox
-import ceros
-import interpolacion
-import edo1
-import edo2
-import integracion
+import Ceros
+import Interpolacion
+import Edo1
+import Edo2
+import Integracion
 
 def desmontar(ventana):
     for widget in ventana.winfo_children():
         widget.destroy()
 
 def verificar_respuesta(eleccion, ventana):
-    print(eleccion)
     desmontar(ventana)
     match eleccion:
         case 1:
-            return ceros.ceros(ventana)
+            return Ceros.Ceros(ventana)
         case 2:
-            interpolacion.interpolacion(ventana)
+            Interpolacion.Interpolacion(ventana)
         case 3:
-            edo1.edo1(ventana)
+            Edo1.Edo1(ventana)
         case 4:
-            edo2.edo2(ventana)
+            Edo2.Edo2(ventana)
         case 5:
-            integracion.integracion(ventana)
+            Integracion.Integracion(ventana)
 
 def main():
     # Crear la ventana principal
@@ -49,7 +48,7 @@ def main():
     opcion5.pack()
 
     # Botón para verificar la respuesta
-    boton_verificar = tk.Button(ventana, text="Verificar", command=lambda: verificar_respuesta(eleccion.get(), ventana))
+    boton_verificar = tk.Button(ventana, text="Siguiente", command=lambda: verificar_respuesta(eleccion.get(), ventana))
     boton_verificar.pack()
 
     # Ejecutar el bucle principal
