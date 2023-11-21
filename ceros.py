@@ -1,42 +1,58 @@
 import tkinter as tk
+from tkinter import messagebox
 import Newton
 import Secante
 import Biseccion
 import FalsaPosicion
+import main
 
-def desmontar(ventana):
-    for widget in ventana.winfo_children():
-        widget.destroy()
+class CerosApp:
+    def __init__(self, ventana, volver_a_inicio):
+        self.ventana = ventana
+        self.volver_a_inicio = volver_a_inicio
+        self.mostrar_ceros()
 
-def verificar_respuesta(eleccion, ventana):
-    desmontar(ventana)
-    match eleccion:
-        case 1:
-            Newton.Newton(ventana)
-        case 2:
-            Secante.Secante(ventana)
-        case 3:
-            Biseccion.Biseccion(ventana)
-        case 4:
-            FalsaPosicion.FalsaPosicion(ventana)
+    def desmontar(self):
+        for widget in self.ventana.winfo_children():
+            widget.destroy()
 
-def Ceros(ventana):
-    pregunta_label = tk.Label(ventana, text="Metodos de ceros:")
-    pregunta_label.pack()
+    def verificar_respuesta(self, eleccion):
+        if eleccion == 0:
+            messagebox.showerror("Error", "Seleccione una opción")
+        else:
+            self.desmontar()
+            if eleccion == 1:
+                Newton.Newton(self.ventana)
+            elif eleccion == 2:
+                Secante.Secante(self.ventana)
+            elif eleccion == 3:
+                Biseccion.Biseccion(self.ventana)
+            elif eleccion == 4:
+                FalsaPosicion.FalsaPosicion(self.ventana)
 
-    eleccion = tk.IntVar()
-    opcion1 = tk.Radiobutton(ventana, text="Newton", variable=eleccion, value=1)
-    opcion2 = tk.Radiobutton(ventana, text="Secante", variable=eleccion, value=2)
-    opcion3 = tk.Radiobutton(ventana, text="Biseccion", variable=eleccion, value=3)
-    opcion4 = tk.Radiobutton(ventana, text="Falsa Posicion", variable=eleccion, value=4)
-    
-    opcion1.pack()
-    opcion2.pack()
-    opcion3.pack()
-    opcion4.pack()
+    def mostrar_ceros(self):
+        pregunta_label = tk.Label(self.ventana, text="Metodos de ceros:")
+        pregunta_label.pack()
 
-    boton_verificar = tk.Button(ventana, text="Siguiente", command=lambda: verificar_respuesta(eleccion, ventana))
-    boton_verificar.pack()
+        eleccion = tk.IntVar()
+        opcion1 = tk.Radiobutton(self.ventana, text="Newton", variable=eleccion, value=1)
+        opcion2 = tk.Radiobutton(self.ventana, text="Secante", variable=eleccion, value=2)
+        opcion3 = tk.Radiobutton(self.ventana, text="Biseccion", variable=eleccion, value=3)
+        opcion4 = tk.Radiobutton(self.ventana, text="Falsa Posicion", variable=eleccion, value=4)
 
-if __name__ == "__ceros__":
-    Ceros()
+        opcion1.pack()
+        opcion2.pack()
+        opcion3.pack()
+        opcion4.pack()
+
+        boton_verificar = tk.Button(self.ventana, text="Siguiente", command=lambda: self.verificar_respuesta(eleccion.get()))
+        boton_verificar.pack()
+
+        boton_atras = tk.Button(self.ventana, text="Atrás", command=self.volver_a_inicio)
+        boton_atras.pack()
+
+if __name__ == "__main__":
+    ventana_ceros = tk.Tk()
+    app_ceros = CerosApp(ventana_ceros, main)
+    ventana_ceros.mainloop()
+

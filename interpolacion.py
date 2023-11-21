@@ -1,37 +1,57 @@
 import tkinter as tk
+from tkinter import messagebox
 import Lagrange
 import MinimosCuadrados
 import PolinomialSimple
+import main
 
-def desmontar(ventana):
-    for widget in ventana.winfo_children():
-        widget.destroy()
+class InterpolacionApp:
+    def __init__(self, ventana, volver_a_inicio):
+        self.ventana = ventana
+        self.volver_a_inicio = volver_a_inicio
+        self.mostrar_interpolacion()
 
-def verificar_respuesta(eleccion, ventana):
-    desmontar(ventana)
-    match eleccion:
-        case 1:
-            Lagrange.Lagrange(ventana)
-        case 2:
-            MinimosCuadrados.MinimosCuadrados(ventana)
-        case 3:
-            PolinomialSimple.PolinomialSimple(ventana)
+    def desmontar(self):
+        for widget in self.ventana.winfo_children():
+            widget.destroy()
 
-def Interpolacion(ventana):
-    pregunta_label = tk.Label(ventana, text="Metodos de interpolacion:")
-    pregunta_label.pack()
+    def verificar_respuesta(self, eleccion):
+        if eleccion == 0:
+            messagebox.showerror("Error", "Seleccione una opción")
+        else:
+            self.desmontar()
+            if eleccion == 1:
+                Lagrange.Lagrange(self.ventana)
+            elif eleccion == 2:
+                MinimosCuadrados.MinimosCuadrados(self.ventana)
+            elif eleccion == 3:
+                PolinomialSimple.PolinomialSimple(self.ventana)
 
-    eleccion = tk.IntVar()
-    opcion1 = tk.Radiobutton(ventana, text="Lagrange", variable=eleccion, value=1)
-    opcion2 = tk.Radiobutton(ventana, text="Minimos cuadrados", variable=eleccion, value=2)
-    opcion3 = tk.Radiobutton(ventana, text="Polinomial simple", variable=eleccion, value=3)
+    def mostrar_interpolacion(self):
+        # Pregunta
+        pregunta_label = tk.Label(self.ventana, text="¿Qué método de interpolación desea utilizar?")
+        pregunta_label.pack()
 
-    opcion1.pack()
-    opcion2.pack()
-    opcion3.pack()
+        # Opciones de selección múltiple
+        eleccion = tk.IntVar()
+        opcion1 = tk.Radiobutton(self.ventana, text="Lagrange", variable=eleccion, value=1)
+        opcion2 = tk.Radiobutton(self.ventana, text="Mínimos cuadrados", variable=eleccion, value=2)
+        opcion3 = tk.Radiobutton(self.ventana, text="Polinomial simple", variable=eleccion, value=3)
 
-    boton_verificar = tk.Button(ventana, text="Siguiente", command=lambda: verificar_respuesta(eleccion, ventana))
-    boton_verificar.pack()
+        opcion1.pack()
+        opcion2.pack()
+        opcion3.pack()
 
-if __name__ == "__interpolacion__":
-    Interpolacion()
+        # Botón para verificar la respuesta
+        boton_verificar = tk.Button(self.ventana, text="Siguiente", command=lambda: self.verificar_respuesta(eleccion.get()))
+        boton_verificar.pack()
+
+        # Botón para volver atrás
+        boton_atras = tk.Button(self.ventana, text="Atrás", command=self.volver_a_inicio)
+        boton_atras.pack()
+
+if __name__ == "__main__":
+    ventana = tk.Tk()
+    app = InterpolacionApp(ventana, main)
+    ventana.mainloop()
+
