@@ -72,8 +72,7 @@ def NewtonR(f,x0,tol):
         x0 = x1
         x1 = new(x0)
         i += 1
-    print('La raiz de la funcion f es ', x1, 'La cantidad de iteraciones ', i)
-    return x1
+    return x1,i
 
 #################################################################################
 
