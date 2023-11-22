@@ -63,6 +63,9 @@ def Euler(f,a,b,h,co):
 
 def NewtonR(f,x0,tol):
     x = sp.symbols('x')
+    f = eval(f)
+    x0 = eval(x0)
+    tol = eval(tol)
     df = sp.diff(f, x)
     new = x - f/df
     new = sp.lambdify(x, new)
