@@ -26,7 +26,6 @@ def Biseccion(func, lim_inf, lim_sup, exactitud):
                 lim_sup = p_medio
             else:
                 lim_inf = p_medio
-        print('La raiz de la funcion es ', p_medio)
     return p_medio
 
 #############################################################################
@@ -85,7 +84,6 @@ def Secante(f, x0, x1, tol):
         x0 = x1
         x1 = x2
         x2 = x1 -f(x1)*(x0-x1)/(f(x0)-f(x1))
-    print('La raiz de la funcion f por S es ', x2)
-    return
+    return x2
 
 #################################################################################

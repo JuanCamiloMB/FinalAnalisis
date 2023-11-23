@@ -1,7 +1,6 @@
 
 import tkinter as tk
 from metodos import NewtonR
-import sympy as sp
 
 class newtonApp:
     def __init__(self, ventana):

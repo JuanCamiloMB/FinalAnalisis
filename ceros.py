@@ -26,7 +26,7 @@ class CerosApp:
             elif eleccion == 2:
                 Secante.secanteApp(self.ventana)
             elif eleccion == 3:
-                Biseccion.Biseccion(self.ventana)
+                Biseccion.biseccionApp(self.ventana)
             elif eleccion == 4:
                 FalsaPosicion.FalsaPosicion(self.ventana)
 

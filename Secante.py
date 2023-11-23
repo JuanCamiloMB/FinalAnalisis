@@ -1,5 +1,6 @@
 import tkinter as tk
 import numpy as np
+from metodos import Secante
 
 class secanteApp:
     def __init__(self, ventana):
@@ -37,14 +38,8 @@ class secanteApp:
         # Convertir la cadena de texto a una función lambda
         f_lambda = lambda x: eval(f)
 
-        x2 = x1 - f_lambda(x1) * (x0 - x1) / (f_lambda(x0) - f_lambda(x1))
-
-        while np.abs(x2 - x1) > tol:
-            x0 = x1
-            x1 = x2
-            x2 = x1 - f_lambda(x1) * (x0 - x1) / (f_lambda(x0) - f_lambda(x1))
-
-        resultado_label.config(text=f'La raiz de la funcion {f} por el metodo secante es: {x2}')
+        result = Secante(f_lambda, x0, x1, tol)
+        resultado_label.config(text=f'La raiz de la funcion {f} por el metodo secante es: {result}')
 
 if __name__ == "__main__":
     ventana_secante = tk.Tk()
