@@ -54,13 +54,18 @@ def s_taylor(f,x0,n):
 
 ############################################################################
 
-def Euler(f,a,b,h,co):
+def Euler(func,a,b,h,co):
+    f = lambda t,y: eval(func)
+    a = eval(a)
+    b = eval(b)
+    h = eval(h)
+    co = eval(co)
     n = int((b-a)/h)
     t = np.linspace(a,b,n+1)
     eu = [co]
     for i in range(n):
         eu.append(eu[i]+h*f(t[i], eu[i]))
-    return t, eu
+    return eu
 
 ##############################################################################
 
