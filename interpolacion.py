@@ -23,7 +23,7 @@ class InterpolacionApp:
             if eleccion == 1:
                 Lagrange.Lagrange(self.ventana)
             elif eleccion == 2:
-                MinimosCuadrados.MinimosCuadrados(self.ventana)
+                MinimosCuadrados.MinimosCuadradosApp(self.ventana)
             elif eleccion == 3:
                 PolinomialSimple.PolinomialSimple(self.ventana)
 
