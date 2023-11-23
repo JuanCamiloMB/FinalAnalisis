@@ -26,7 +26,7 @@ class IntegracionApp:
             elif eleccion == 2:
                 S1_3.s13App(self.ventana)
             elif eleccion == 3:
-                S3_8.S3_8(self.ventana)
+                S3_8.s38App(self.ventana)
 
     def mostrar_integracion(self):
         pregunta_label = tk.Label(self.ventana, text="Metodos de integracion:")
