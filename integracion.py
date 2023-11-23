@@ -22,9 +22,9 @@ class IntegracionApp:
             self.desmontar()
             # Lógica adicional para manejar la respuesta del usuario si es necesario
             if eleccion == 1:
-                T.T(self.ventana)
+                T.tApp(self.ventana)
             elif eleccion == 2:
-                S1_3.S1_3(self.ventana)
+                S1_3.s13App(self.ventana)
             elif eleccion == 3:
                 S3_8.S3_8(self.ventana)
 
