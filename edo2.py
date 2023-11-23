@@ -22,7 +22,7 @@ class Edo2App:
             if eleccion == 1:
                 Euler.eulerApp(self.ventana)
             elif eleccion == 2:
-                Runge.Runge(self.ventana)
+                Runge.rungeApp(self.ventana)
 
     def mostrar_edo2(self):
         pregunta_label = tk.Label(self.ventana, text="Métodos de EDO2:")
