@@ -28,7 +28,7 @@ class CerosApp:
             elif eleccion == 3:
                 Biseccion.biseccionApp(self.ventana)
             elif eleccion == 4:
-                FalsaPosicion.falsaposicionApp(self.ventana)
+                FalsaPosicion.FalsaPosicion(self.ventana)
 
     def mostrar_ceros(self):
         pregunta_label = tk.Label(self.ventana, text="Metodos de ceros:")
