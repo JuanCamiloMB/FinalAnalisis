@@ -20,7 +20,7 @@ class Edo1App:
         else:
             self.desmontar()
             if eleccion == 1:
-                Euler.Euler(self.ventana)
+                Euler.eulerApp(self.ventana)
             elif eleccion == 2:
                 Runge.Runge(self.ventana)
 
