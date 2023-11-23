@@ -22,11 +22,11 @@ class CerosApp:
         else:
             self.desmontar()
             if eleccion == 1:
-                Newton.Newton(self.ventana)
+                Newton.newtonApp(self.ventana)
             elif eleccion == 2:
-                Secante.Secante(self.ventana)
+                Secante.secanteApp(self.ventana)
             elif eleccion == 3:
-                Biseccion.Biseccion(self.ventana)
+                Biseccion.biseccionApp(self.ventana)
             elif eleccion == 4:
                 FalsaPosicion.FalsaPosicion(self.ventana)
 
