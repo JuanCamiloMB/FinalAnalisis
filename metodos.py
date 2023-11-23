@@ -2,20 +2,6 @@ import numpy as np
 import sympy as sp
 from math import factorial
 
-def FalsaPosicion(func, lim_inf, lim_sup, exactitud):
-    if(func(lim_inf)*func(lim_sup) > 0):
-        print('La función no cumple el teorema en el intervalo')
-    else:
-        p_medio= lim_inf- (func(lim_inf)*func(lim_inf - lim_sup))/(func(lim_inf) - func(lim_sup))
-        while(np.abs(func(p_medio)) > exactitud):
-            p_medio= lim_inf- (func(lim_inf)*func(lim_inf - lim_sup))/(func(lim_inf) - func(lim_sup))
-            if(func(lim_inf) * func(p_medio) < 0):
-                lim_sup = p_medio
-            else:
-                lim_inf = p_medio
-        print('La raiz de la funcion es ', p_medio)
-    return p_medio
-
 def Biseccion(func, lim_inf, lim_sup, exactitud):
     if(func(lim_inf)*func(lim_sup) > 0):
         print('La función no cumple el teorema en el intervalo')
