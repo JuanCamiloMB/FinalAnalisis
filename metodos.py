@@ -2,7 +2,11 @@ import numpy as np
 import sympy as sp
 from math import factorial
 
-def FalsaPosicion(func, lim_inf, lim_sup, exactitud):
+def FalsaPosicion(f, lim_inf, lim_sup, exactitud):
+    func = lambda x: eval(f)
+    lim_inf = eval(lim_inf)
+    lim_sup = eval(lim_sup)
+    exactitud = eval(exactitud)
     if(func(lim_inf)*func(lim_sup) > 0):
         print('La función no cumple el teorema en el intervalo')
     else:
