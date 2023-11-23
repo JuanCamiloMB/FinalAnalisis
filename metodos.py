@@ -67,7 +67,12 @@ def Euler(func,a,b,h,co):
         eu.append(eu[i]+h*f(t[i], eu[i]))
     return eu
 
-def Runge(f,a,b,h,co):
+def Runge(func,a,b,h,co):
+    f = lambda t,y: eval(func)
+    a = eval(a)
+    b = eval(b)
+    h = eval(h)
+    co = eval(co)
     n = int((b-a)/h)
     t = np.linspace(a,b,n+1)
     rk = [co]
@@ -76,9 +81,8 @@ def Runge(f,a,b,h,co):
         k2= h*f(t[i]+h/2, rk[i]+1/2*k1)
         k3= h*f(t[i]+h/2, rk[i]+1/2*k2)
         k4= h*f(t[i+1], rk[i]+k3)
-        rk.append(rk[i]+1/6*(k1+2*k2+2*k3+k4))
-        print(k1,k2,k3,k4)        
-    return t,rk
+        rk.append(rk[i]+1/6*(k1+2*k2+2*k3+k4))       
+    return rk
 
 ##############################################################################
 
