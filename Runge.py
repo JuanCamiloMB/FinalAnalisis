@@ -9,35 +9,35 @@ class rungeApp:
     def mostrar_runge(self):
         pregunta_label = tk.Label(self.ventana, text="Ingresa la funcion (con variables t,y):")
         pregunta_label.pack()
-        funcion = tk.Text(self.ventana, height = 10,
+        funcion = tk.Text(self.ventana, height = 5,
                 width = 25,
                 bg = "light yellow")
         funcion.pack()
 
         pregunta_label = tk.Label(self.ventana, text="Ingresa limite inferior:")
         pregunta_label.pack()
-        lim_inf = tk.Text(self.ventana, height = 10,
+        lim_inf = tk.Text(self.ventana, height = 5,
                 width = 25,
                 bg = "light yellow")
         lim_inf.pack()
 
         pregunta_label = tk.Label(self.ventana, text="Ingresa limite superior:")
         pregunta_label.pack()
-        lim_sup = tk.Text(self.ventana, height = 10,
+        lim_sup = tk.Text(self.ventana, height = 5,
                 width = 25,
                 bg = "light yellow")
         lim_sup.pack()
 
         pregunta_label = tk.Label(self.ventana, text="Ingresa h:")
         pregunta_label.pack()
-        h = tk.Text(self.ventana, height = 10,
+        h = tk.Text(self.ventana, height = 5,
                 width = 25,
                 bg = "light yellow")
         h.pack()
 
         pregunta_label = tk.Label(self.ventana, text="Ingresa Condicion inicial:")
         pregunta_label.pack()
-        exactitud = tk.Text(self.ventana, height = 10,
+        exactitud = tk.Text(self.ventana, height = 5,
                 width = 25,
                 bg = "light yellow")
         exactitud.pack() 
