@@ -198,3 +198,30 @@ def MC(xi,fxi):
     a0= (sf*sx2-sx*sfx)/(m*sx2-sx**2)
     a1 = (m*sfx-sf*sx)/(m*sx2-sx**2)
     return a0, a1
+
+def lagrange(xdata,ydata):
+    X = sp.symbols('X')
+    N=len(xdata)
+    P=0
+    for i in range(N):
+        T=1
+        for j in range(N):
+            if j!=i:
+                T=T*(X-xdata[j])/(xdata[i]-xdata[j])
+        P=P+T*ydata[i]
+    return sp.lambdify(X,P)
+                       
+def p_simple(xdata, ydata):
+    X = sp.symbols('X')
+    N=len(xdata)
+    M=np.zeros([N,N])
+    P=0
+    for i in range(N):
+        M[i,0]=1
+        for j in range(1,N):
+            M[i,j]=M[i,j-1]*xdata[i]
+    ai=np.linalg.solve(M,ydata)
+    for i in range(N):
+        P=P+ai[i]*X**i
+    return sp.lambdify(X,P)
+                       

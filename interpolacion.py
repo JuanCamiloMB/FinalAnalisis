@@ -21,11 +21,11 @@ class InterpolacionApp:
         else:
             self.desmontar()
             if eleccion == 1:
-                Lagrange.Lagrange(self.ventana)
+                Lagrange.LagrangeApp(self.ventana)
             elif eleccion == 2:
                 MinimosCuadrados.MinimosCuadradosApp(self.ventana)
             elif eleccion == 3:
-                PolinomialSimple.PolinomialSimple(self.ventana)
+                PolinomialSimple.PolinomialSimpleApp(self.ventana)
 
     def mostrar_interpolacion(self):
         # Pregunta
