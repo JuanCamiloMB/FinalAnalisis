@@ -185,3 +185,16 @@ def Simpson38_data(xi, yi):
         return Area
     else: 
         print("El numero de puntos debe ser multiplo de 3")
+
+#################################################################################
+
+def MC(xi,fxi):
+    m = len(xi)
+    sx = sum(xi)
+    sf = sum(fxi)
+    sfx = sum(fxi*xi)
+    sx2 = sum(xi**2)
+    
+    a0= (sf*sx2-sx*sfx)/(m*sx2-sx**2)
+    a1 = (m*sfx-sf*sx)/(m*sx2-sx**2)
+    return a0, a1
